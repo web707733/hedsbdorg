@@ -1,371 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Human Rights & Environment Development Society</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-			background-color: #f3f3f3;
-        }
-		li{list-style-type: none;}
-        /* Header and Navigation Bar */
-        header {
-		  display: flex;
-		  justify-content: space-between;
-		  align-items: center;
-		  background-color: #f3f3f3;
-		  color: white;
-		  padding: 9px 20px;
-		  width: 82%;
-		  margin-left: 8%;
-        }
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Human Rights & Environment Development Society</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
-        .logo img {
-            height: 90px;
-            width: auto;
-        }
-		.sitename{ color: green;}
-        /* Navigation Menu Styles */
-        .navbar {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-			  margin-top: 50px;
-        }
+  <!-- Favicons -->
+  <!--<link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
-        .navbar li {
-            position: relative;
-            margin-right: 20px;
-        }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-		.navbar li a {
-            color: black;
-            text-decoration: none;
-            padding: 10px 20px;
-            display: block;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
+  <!-- Vendor CSS Files -->
+  <link href="http://hedsbd.org/bootstrap.min.css" rel="stylesheet">
+  
 
-        .navbar li a:hover {
-            background-color: #575757;
-        }
+  <!-- Main CSS File -->
+  <link href="http://hedsbd.org/main.css" rel="stylesheet">
 
-        /* Dropdown Menu */
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #333;
-            padding: 10px 0;
-            border-radius: 5px;
-            min-width: 180px;
-            z-index: 1000;
-        }
-
-        .dropdown li {
-            margin: 0;
-        }
-
-        .dropdown li a {
-            padding: 10px 20px;
-            color: white;
-        }
-
-        .dropdown li a:hover {
-            background-color: #575757;
-        }
-
-        .navbar li:hover .dropdown {
-            display: block;
-        }
-
-        .menu-toggle {
-            display: none;
-        }
-
-        /* Slider Styles */
-        .slider {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-        }
-
-        .slider-images {
-            display: flex;
-            transition: transform 1s ease;
-        }
-
-        .slider-images img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 30px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1000;
-        }
-
-        .left-arrow {
-            left: 10px;
-        }
-
-        .right-arrow {
-            right: 10px;
-        }
-
-        /* Content Section */
-        .content {
-            padding: 30px;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
-
-        .footer {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-padding-left: 10%;
-  padding-right: 10%;
-font-size: 15px;  
-        }
-
-        .footer div {
-            padding: 10px;
-        }
-
-        .footer a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                display: none;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .navbar.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-                font-size: 30px;
-                background: none;
-                border: none;
-                color: white;
-                cursor: pointer;
-            }
-
-            .navbar li {
-                width: 100%;
-				list-style-type: none;
-            }
-
-            .dropdown {
-                position: static;
-                width: 100%;
-            }
-        }
-    </style>
 </head>
-<body>
 
-    <!-- Header with Logo and Navigation Menu -->
-    <header>
-        <div class="logo"><a href="https://hedsbd.org">
-			<img src="https://hedsbd.org/header-logo.png" alt="Logo"></a>
-		
-		</div>
-        <button class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="navbar" id="menu-main-menu">
-            <li class="menu-item">
+<body class="index-page">
+
+  <header id="header" class="header sticky-top">
+
+    <div class="topbar d-flex align-items-center accent-background">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center">
+            <a href="mailto:info@hedsbd.org">info@hedsbd.org</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>02 488111916</span></i>
+        </div>
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img src="https://hedsbd.org/logo-final-300x286.png" alt="">
+          <h2 style="font-size: 14px;">Human Rights & Environment<br> Development Society<br>
+          S12206/2015</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          
+          <ul>
+            <li>
                 <a href="http://hedsbd.org/" aria-current="page">Home</a>
             </li>
-            <li class="menu-item menu-item-has-children">
-                <a href="#">About</a>
-                <ul class="dropdown">
-                    <li><a href="http://hedsbd.org/members/executive-member">Executive Member</a></li>
-                    <li><a href="http://hedsbd.org/advisor">Advisor</a></li>
-                    <li><a href="http://hedsbd.org/sample-page-2">Objectives of Society</a></li>
-                    <li><a href="http://hedsbd.org/memorandum">Memorandum (Bangla)</a></li>
+            <li class="dropdown">
+                <a href="#">About<i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                    <li><a href="http://hedsbd.org/">Executive Member</a></li>
+                    <li><a href="http://hedsbd.org/">Advisor</a></li>
+                    <li><a href="http://hedsbd.org/">Objectives of Society</a></li>
+                    <li><a href="http://hedsbd.org/">Memorandum (Bangla)</a></li>
                 </ul>
             </li>
-            <li class="menu-item menu-item-has-children">
-                <a href="http://hedsbd.org/notice">Notice</a>
-                <ul class="dropdown">
+            <li  class="dropdown">
+                <a href="http://hedsbd.org/">Notice<i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
                     <li><a href="#">Message</a></li>
                 </ul>
             </li>
-            <li class="menu-item menu-item-has-children">
-                <a href="http://hedsbd.org/zone/bangladesh/branch-committee">Branch & Committee</a>
-                <ul class="dropdown">
-                    <li><a href="http://hedsbd.org/central-committee">Central Committee</a></li>
+            <li  class="dropdown">
+                <a href="http://hedsbd.org/">Branch &amp; Committee<i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                    <li><a href="http://hedsbd.org/">Central Committee</a></li>
                 </ul>
             </li>
-            <li class="menu-item"><a href="http://hedsbd.org/activites">Activities</a></li>
-            <li class="menu-item menu-item-has-children">
-                <a href="http://hedsbd.org/gallery">Gallery</a>
-                <ul class="dropdown">
-                    <li><a href="http://hedsbd.org/image">Image</a></li>
-                    <li><a href="http://hedsbd.org/vedio">Video</a></li>
+            <li><a href="http://hedsbd.org/">Activities</a></li>
+            <li class="dropdown">
+                <a href="http://hedsbd.org/">Gallery<i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                    <li><a href="http://hedsbd.org/">Image</a></li>
+                    <li><a href="http://hedsbd.org/">Video</a></li>
                 </ul>
             </li>
-            <li class="menu-item menu-item-has-children">
-                <a href="http://hedsbd.org/members">Members</a>
-                <ul class="dropdown">
-                    <li><a href="http://hedsbd.org/registration">Member Registration</a></li>
-                    <li><a href="http://hedsbd.org/members/general-member">General Member</a></li>
-                    <li><a href="http://hedsbd.org/members/life-member">Life Member</a></li>
-                    <li><a href="http://hedsbd.org/members/donor-member">Donor Member</a></li>
-                    <li><a href="http://hedsbd.org/central-coordinator">Central Coordinator</a></li>
+            <li class="dropdown">
+                <a href="http://hedsbd.org/">Members<i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                    <li><a href="http://hedsbd.org/">Member Registration</a></li>
+                    <li><a href="http://hedsbd.org/">General Member</a></li>
+                    <li><a href="http://hedsbd.org/">Life Member</a></li>
+                    <li><a href="http://hedsbd.org/">Donor Member</a></li>
+                    <li><a href="http://hedsbd.org/">Central Coordinator</a></li>
                 </ul>
             </li>
-            <li class="menu-item menu-item-has-children">
-                <a href="http://hedsbd.org/contact-page">Contact Us</a>
-                <ul class="dropdown">
-                    <li><a href="http://hedsbd.org/m/Member_Application_form.pdf">Membership form</a></li>
+            <li  class="dropdown">
+                <a href="http://hedsbd.org/">Contact Us<i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                    <li><a href="http://hedsbd.org/">Membership form</a></li>
                 </ul>
             </li>
         </ul>
-    </header>
-
-    <!-- Slider Section -->
-    <div class="slider">
-        <div class="slider-images">
-            <img src="https://hedsbd.org/banner.jpg" alt="Slider Image 1">
-            <img src="https://hedsbd.org/banner2.jpg" alt="Slider Image 2">
-
-        </div>
-        <!-- Arrow Controls -->
-        <button class="arrow left-arrow" onclick="prevSlide()">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="arrow right-arrow" onclick="nextSlide()">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <!-- Content Section -->
-    <div class="content" >
-        <h2>Welcom to Human Right & Environment Development Society</h2>
-        <p style="text-align: justify;padding-left: 10%;padding-right: 10%;">
-
-
-Human Right & Environment Development Society (HEDS) is a non-profit organization working for human rights and environmental justice through research, training, dialogue and advocacy. Operating  HEDS works closely with communities where environmental and human rights have been eroded.
-
-HEDS is vocal about the danger of human and poor environmental conditions and management, and the impact these have on the people living in such environments. It is also an advocate for the rights of marginalised communities. HEDS seeks to draw attention to these problems by giving affected communities a voice through its publications, investigative reporting, training, and grassroots empowerment programs.
-
-The two broad areas of HEDS work are human rights and environment, specific areas include:  workers, Adivasis (indigenous people), forests, journalism, sex workers, and coastal environment. HEDS takes pride in its publications on these areas and more, which include books, documentaries, photography exhibitions and investigative reports.
-
-Through its activities, HEDS has helped to provide skills and training to journalists, marginalized and indigenous communities, youths, students and academics. All of HEDS's activities are underpinned by its commitment to democratic values and the inherent importance of empowering people by giving them a voice.
-
- 
-<br>
-With best regards to all<br>
-Advocate Abdul Mannan<br>
-
-Chairman<br>
-
-Human Right & Environment Development Society<br>
-		
-	</p>
-
-
-	    
-    </div>
-
-    <!-- Footer Section with Four Columns -->
-    <footer class="footer" style="text-align:left">
-        <div style="text-align:left">
-            <h3>HEDS</h3>
-            <p>Human Right & Environment Development Society (HEDS) is a human rights organization working for human rights and environmental justice through research, training, dialogue and advocacy. </p>
-        </div>
-        <div>
-            <h3>RESOURCES</h3>
-            <ul style="padding: 0;">
-                <li><a href="http://www.facebook.com/search/top?q=hedsbd.org">FACEBOOK</a></li>
+        
           
-            </ul>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <!--
+          <ul>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
+            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>-->
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-item active">
+          <img src="http://hedsbd.org/banner.jpg" alt="">
+          <div class="carousel-container">
+            <h2>Donate For Life</h2>
+            <p>To ensure good environment to live</p>
+            <a href="#featured-services" class="btn-get-started">Donate Now</a>
+          </div>
+        </div><!-- End Carousel Item -->
+
+        <div class="carousel-item">
+          <img src="http://hedsbd.org/banner2.jpg" alt="">
+          <div class="carousel-container">
+            <h2>Donate & Help</h2>
+            <p>Poor Children for Education</p>
+            <a href="#featured-services" class="btn-get-started">Donate Now</a>
+          </div>
+        </div><!-- End Carousel Item -->
+
+        <!-- End Carousel Item -->
+
+        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+        <ol class="carousel-indicators"></ol>
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section light-background">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="" class="stretched-link">HEDS</a></h4>
+              <p>Human Right & Environment Development Society (HEDS) is a 
+                human rights organization working for human rights </p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <h4><a href="" class="stretched-link">Works</a></h4>
+              <p>Work for environmental justice through research, training, dialogue and advocacy. </p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <h4><a href="" class="stretched-link">Activities</a></h4>
+              <p>Operating HEDS works closely 
+                with communities where environmental and human rights have been eroded.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <h4><a href="" class="stretched-link">Publications</a></h4>
+              <p>HEDS seeks to draw attention to these problems by giving affected communities a voice through its publications</p>
+            </div>
+          </div><!-- End Service Item -->
+
         </div>
-        <div>
-            <h3>Important Link</h3>
-            <ul style="padding: 0;">
-                <li><a href="http://www.facebook.com/search/top?q=hedsbd.org">FACEBOOK</a></li>
-            </ul>
+
+      </div>
+
+    </section><!-- /Featured Services Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+    
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
+            <img src="http://hedsbd.org/sidebanner.jpg" class="img-fluid" alt="">
+            <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>-->
+          </div>
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+            <h3>Welcom to Human Right & Environment Development Society</h3>
+            <p class="fst-italic">
+              Human Right & Environment Development Society (HEDS) is a non-profit 
+              organization working for human rights and environmental justice through 
+              research, training, dialogue and advocacy. Operating HEDS works closely 
+              with communities where environmental and human rights have been eroded. 
+              HEDS is vocal about the danger of human and poor environmental conditions 
+              and management, and the impact these have on the people living in such environments. 
+              It is also an advocate for the rights of marginalised communities. HEDS seeks to draw attention to these problems by giving affected communities a voice through its publications, investigative reporting, training, and grassroots empowerment programs. The two broad areas of HEDS work are human rights and environment, specific areas include: workers, Adivasis (indigenous people), forests, journalism, sex workers, and coastal environment. HEDS takes pride in its publications on these areas and more, which include books, documentaries, photography exhibitions and investigative reports. Through its activities, HEDS has helped to provide skills and training to journalists, marginalized and indigenous communities, youths, students and academics. All of HEDS's activities are underpinned by its commitment to democratic values and the inherent importance of empowering people by giving them a voice.
+              <br><br><br><br>With best regards to all<br>
+Advocate Abdul Mannan<br>
+Chairman<br>
+Human Right & Environment Development Society<br>
+            </p>
+            
+          </div>
         </div>
-        <div>
-            <h3>Head Office</h3>
-            <ul style="padding: 0;" >
-                <li>Address: Swit: 69, Gulsan Shopping Center(1st Floor), Gulsan-1, Dhaka-1212, Bangladesh.</li>
-                <li>Tel: 02 488111916</li>
-                <li>Phone: +8801707070307</li>
-                <li>Email: info@hedsbd.org</li>
-            </ul>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+   
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section accent-background">
+
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-9 text-center text-xl-start">
+            <h3>Call To Action</h3>
+            <p>Human Right & Environment Development Society (HEDS) is a non-profit organization working for human rights and environmental justice through research, training, dialogue and advocacy. </p>
+          </div>
+          <div class="col-xl-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Call To Action</a>
+          </div>
         </div>
-    </footer>
-	<center style="margin-top: 15px;font-size: 12px;">@copy2015 Human rights and enviroment development society</center>
-    <!-- JavaScript for Slider and Navigation -->
-    <script>
-        // Slider Controls
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.slider-images img');
-        const totalImages = images.length;
 
-        function updateSlider() {
-            const offset = -currentIndex * 100;
-            document.querySelector('.slider-images').style.transform = `translateX(${offset}%)`;
-        }
+      </div>
 
-        function nextSlide() {
-            currentIndex++;
-            if (currentIndex >= totalImages) {
-                currentIndex = 0;  // Loop back to first image
-            }
-            updateSlider();
-        }
+    </section><!-- /Call To Action Section -->
 
-        function prevSlide() {
-            currentIndex--;
-            if (currentIndex < 0) {
-                currentIndex = totalImages - 1;  // Loop back to last image
-            }
-            updateSlider();
-        }
+    
 
-        // Toggle Navigation Menu (Mobile)
-        function toggleMenu() {
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.toggle('active');
-        }
-    </script>
+    <!-- Contact Section 
+    <section id="contact" class="contact section">
+
+     
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">HEDS</span>
+          </a>
+<p>
+
+  Human Right & Environment <br>Development Society (HEDS) <br>
+  is a human rights organization<br> working for human rights<br>
+   and environmental justice <br>through research, training, <br>dialogue and advocacy.
+</p>
+
+
+
+
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>Swit: 69, Gulsan Shopping<br> Center(1st Floor), Gulsan-1,<br> Dhaka-1212, Bangladesh.</p>
+         
+          <p class="mt-4"><strong>Phone:</strong> <span>02 488111916</span></p>
+          <p class="mt-4"><strong>Mobile:</strong> <span>+8801707070307</span></p>
+          <p><strong>Email:</strong> <span>info@hedsbd.org</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">hedsbd.com</strong> <span>All Rights Reserved</span></p>
+     
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="http://hedsbd.org/bootstrap.bundle.min.js"></script>
+ 
+  
+
+  <!-- Main JS File -->
+  <script src="http://hedsbd.org/main.js"></script>
 
 </body>
+
 </html>
