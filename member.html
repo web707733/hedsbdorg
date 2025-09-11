@@ -247,7 +247,7 @@
 
     <div id="tableWrap"></div>
 
-    <div class="meta">
+    <div class="meta" style="display:none">
       API: <code id="apiBase"></code>
     </div>
   </div>
@@ -324,6 +324,7 @@
         return;
       }
       const cols = ["MEMBER_ID","NAME","MOBILE","ADDRESS","DISTRICT","UPAZILLA","COMMITTEE","POSITION","IMAGE_URL","META1","META2","META3","META4"];
+      const cols = ["MEMBER_ID","NAME","MOBILE","ADDRESS","DISTRICT","UPAZILLA","COMMITTEE","POSITION","IMAGE_URL"];
       const thead = `<thead><tr>${cols.map(c=>`<th>${escapeHtml(c)}</th>`).join("")}</tr></thead>`;
       const tbody = `<tbody>${rows.map(r => {
         const img = r.IMAGE_URL ? `<a href="${escapeHtml(r.IMAGE_URL)}" target="_blank" rel="noopener">
@@ -339,10 +340,7 @@
           <td>${escapeHtml(r.COMMITTEE ?? "")}</td>
           <td>${escapeHtml(r.POSITION ?? "")}</td>
           <td>${img || escapeHtml(r.IMAGE_URL ?? "")}</td>
-          <td>${escapeHtml(r.META1 ?? "")}</td>
-          <td>${escapeHtml(r.META2 ?? "")}</td>
-          <td>${escapeHtml(r.META3 ?? "")}</td>
-          <td>${escapeHtml(r.META4 ?? "")}</td>
+          
         </tr>`;
       }).join("")}</tbody>`;
       tableWrap.innerHTML = `<table>${thead}${tbody}</table>`;
@@ -377,7 +375,7 @@
         }
         const rows = Array.isArray(data.data) ? data.data : [];
         setStatus(`Found ${data.total ?? rows.length} result(s).`, "success");
-        setMeta(`Request URL: ${url}`);
+        //setMeta(`Request URL: ${url}`);
         renderTable(rows);
         updateUrlBar(params);
       } catch (err) {
