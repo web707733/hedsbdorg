@@ -247,7 +247,7 @@
 
     <div id="tableWrap"></div>
 
-    <div class="meta" style="display:none">
+    <div class="meta">
       API: <code id="apiBase"></code>
     </div>
   </div>
@@ -375,7 +375,7 @@
         }
         const rows = Array.isArray(data.data) ? data.data : [];
         setStatus(`Found ${data.total ?? rows.length} result(s).`, "success");
-        //setMeta(`Request URL: ${url}`);
+        setMeta(`Request URL: ${url}`);
         renderTable(rows);
         updateUrlBar(params);
       } catch (err) {
