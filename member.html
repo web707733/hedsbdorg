@@ -324,7 +324,7 @@
         return;
       }
       const cols = ["MEMBER_ID","NAME","MOBILE","ADDRESS","DISTRICT","UPAZILLA","COMMITTEE","POSITION","IMAGE_URL","META1","META2","META3","META4"];
-      const cols = ["MEMBER_ID","NAME","MOBILE","ADDRESS","DISTRICT","UPAZILLA","COMMITTEE","POSITION","IMAGE_URL"];
+      const cols = ["MEMBER_ID","NAME","MOBILE","ADDRESS","DISTRICT","UPAZILLA","COMMITTEE","POSITION","IMAGE_URL","META1","META2","META3","META4"];
       const thead = `<thead><tr>${cols.map(c=>`<th>${escapeHtml(c)}</th>`).join("")}</tr></thead>`;
       const tbody = `<tbody>${rows.map(r => {
         const img = r.IMAGE_URL ? `<a href="${escapeHtml(r.IMAGE_URL)}" target="_blank" rel="noopener">
@@ -340,7 +340,10 @@
           <td>${escapeHtml(r.COMMITTEE ?? "")}</td>
           <td>${escapeHtml(r.POSITION ?? "")}</td>
           <td>${img || escapeHtml(r.IMAGE_URL ?? "")}</td>
-          
+          <td style="display:none">${escapeHtml(r.META1 ?? "")}</td>
+          <td style="display:none">${escapeHtml(r.META2 ?? "")}</td>
+          <td style="display:none">${escapeHtml(r.META3 ?? "")}</td>
+          <td style="display:none">${escapeHtml(r.META4 ?? "")}</td>
         </tr>`;
       }).join("")}</tbody>`;
       tableWrap.innerHTML = `<table>${thead}${tbody}</table>`;
