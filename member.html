@@ -176,27 +176,271 @@
       <div class="container">
 
         <div class="row gy-4">
-          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://hedsbd.org/sidebanner.jpg" class="img-fluid" alt="">
-            <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>-->
-          </div>
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-            <h3>Branch &amp; Committee</h3>
-            <p class="fst-italic">
-              Human Right & Environment Development Society (HEDS) is a non-profit 
-              organization working for human rights and environmental justice through 
-              research, training, dialogue and advocacy. Operating HEDS works closely 
-              with communities where environmental and human rights have been eroded. 
-              HEDS is vocal about the danger of human and poor environmental conditions 
-              and management, and the impact these have on the people living in such environments. 
-              It is also an advocate for the rights of marginalised communities. HEDS seeks to draw attention to these problems by giving affected communities a voice through its publications, investigative reporting, training, and grassroots empowerment programs. The two broad areas of HEDS work are human rights and environment, specific areas include: workers, Adivasis (indigenous people), forests, journalism, sex workers, and coastal environment. HEDS takes pride in its publications on these areas and more, which include books, documentaries, photography exhibitions and investigative reports. Through its activities, HEDS has helped to provide skills and training to journalists, marginalized and indigenous communities, youths, students and academics. All of HEDS's activities are underpinned by its commitment to democratic values and the inherent importance of empowering people by giving them a voice.
-              <br><br><br><br>With best regards to all<br>
-Advocate Abdul Mannan<br>
-Chairman<br>
-Human Right & Environment Development Society<br>
-            </p>
-            
-          </div>
+        <!--------------------------------------------------------------------------------------->  
+          
+
+
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; }
+    body { margin: 0; background: #f6f7f9; color: #111; }
+    .wrap { max-width: 1200px; margin: 40px auto; padding: 24px; background: #fff; border-radius: 16px; box-shadow: 0 6px 30px rgba(0,0,0,.06); }
+    h1 { margin: 0 0 16px; font-size: 22px; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    label { font-size: 12px; color: #444; }
+    input[type="text"] { padding: 10px 12px; border: 1px solid #d6d8dd; border-radius: 10px; font-size: 14px; }
+    .actions { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+    button { padding: 10px 14px; border: 0; border-radius: 10px; background: #111; color: #fff; font-weight: 600; cursor: pointer; }
+    button.secondary { background: #e9eaee; color: #111; }
+    button:disabled { opacity: .6; cursor: not-allowed; }
+    .status { margin-top: 10px; font-size: 14px; }
+    .error { color: #b00020; }
+    .success { color: #1a7f37; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    th { background: #fafbfc; font-weight: 600; position: sticky; top: 0; }
+    .thumb { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; border: 1px solid #e5e7eb; }
+    .meta { font-size: 12px; color: #555; margin-top: 6px; }
+    @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 580px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+
+  <div class="wrap">
+    <h1>Member Directory Search</h1>
+
+    <div class="grid">
+      <div class="field"><label for="member_id">MEMBER_ID</label><input id="member_id" type="text" placeholder="A001" /></div>
+      <div style="display: none;"  class="field"><label for="name">NAME</label><input id="name" type="text" placeholder="Alice" /></div>
+      <div style="display: none;"  class="field"><label for="mobile">MOBILE</label><input id="mobile" type="text" placeholder="017..." /></div>
+      <div style="display: none;"  class="field"><label for="address">ADDRESS</label><input id="address" type="text" placeholder="Road 12" /></div>
+
+
+
+
+      <div class="field"><label for="district">DISTRICT</label><input id="district" type="text" placeholder="Dhaka" />
+    
+    
+    </div>
+      <div class="field"><label for="upazilla">UPAZILLA</label><input id="upazilla" type="text" placeholder="Savar" /></div>
+      <div class="field"><label for="comittee">COMITTEE</label><input id="comittee" type="text" placeholder="Finance" /></div>
+
+
+
+
+
+      <div style="display: none;"  class="field"><label for="position">POSITION</label><input id="position" type="text" placeholder="Chair" /></div>
+      <div style="display: none;"  class="field"><label for="image_url">IMAGE_URL</label><input id="image_url" type="text" placeholder="https://..." /></div>
+      <div style="display: none;"  class="field"><label for="meta1">META1</label><input id="meta1" type="text" placeholder="..." /></div>
+      <div style="display: none;"  class="field"><label for="meta2">META2</label><input id="meta2" type="text" placeholder="..." /></div>
+      <div style="display: none;"  class="field"><label for="meta3">META3</label><input id="meta3" type="text" placeholder="..." /></div>
+      <div style="display: none;"  class="field"><label for="meta4">META4</label><input id="meta4" type="text" placeholder="..." /></div>
+    </div>
+
+    <div class="actions">
+      <button id="searchBtn">Search</button>
+      <button id="clearBtn" class="secondary">Clear</button>
+      <button id="shareBtn" class="secondary" title="Copy a shareable link with current filters">Copy Share Link</button>
+    </div>
+
+    <div class="status" id="status"></div>
+    <div class="meta" id="meta"></div>
+
+    <div id="tableWrap"></div>
+
+    <div class="meta">
+      API: <code id="apiBase"></code>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script>
+    // Update to your current deployment URL
+    const BASE_URL = "https://script.google.com/macros/s/AKfycbyy_mSBu0PRg0QzZM8_w-Lx2zVmnryknAyEaO20jAupknoJQcpTxh7jw-ct_W0onpAmKQ/exec";
+
+    const $ = (id) => document.getElementById(id);
+    const statusEl = $('status');
+    const metaEl = $('meta');
+    const tableWrap = $('tableWrap');
+    $('apiBase').textContent = BASE_URL;
+
+    // Inputs mapped to API parameter (must match header names in the sheet)
+    const inputs = {
+      MEMBER_ID: $('member_id'),
+      NAME: $('name'),
+      MOBILE: $('mobile'),
+      ADDRESS: $('address'),
+      DISTRICT: $('district'),
+      UPAZILLA: $('upazilla'),
+      COMITTEE: $('comittee'),  // note: if your sheet uses COMMITTEE, update both here and in the sheet/API
+      POSITION: $('position'),
+      IMAGE_URL: $('image_url'),
+      META1: $('meta1'),
+      META2: $('meta2'),
+      META3: $('meta3'),
+      META4: $('meta4')
+    };
+
+    function setStatus(msg, cls = "") {
+      statusEl.className = `status ${cls}`;
+      statusEl.textContent = msg || "";
+    }
+    function setMeta(msg = "") { metaEl.textContent = msg; }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"'`=\/]/g, ch => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;',
+        "'": '&#39;', '`': '&#96;', '=': '&#61;', '/': '&#47;'
+      }[ch]));
+    }
+
+    function buildQuery() {
+      const params = new URLSearchParams();
+      Object.entries(inputs).forEach(([key, el]) => {
+        const v = (el.value || '').trim();
+        if (v) params.set(key, v);
+      });
+      params.set("page", "1");
+      params.set("page_size", "500");
+      return params;
+    }
+
+    function updateUrlBar(params) {
+      const url = new URL(location.href);
+      Object.keys(inputs).forEach(k => url.searchParams.delete(k));
+      for (const [k,v] of params.entries()) {
+        if (["page","page_size"].includes(k)) continue;
+        url.searchParams.set(k, v);
+      }
+      history.replaceState(null, "", url.toString());
+    }
+
+    function renderTable(rows) {
+      if (!Array.isArray(rows) || rows.length === 0) {
+        tableWrap.innerHTML = `<div class="status">No results.</div>`;
+        return;
+      }
+      const cols = ["MEMBER_ID","NAME","MOBILE","ADDRESS","DISTRICT","UPAZILLA","COMMITTEE","POSITION","IMAGE_URL","META1","META2","META3","META4"];
+      const thead = `<thead><tr>${cols.map(c=>`<th>${escapeHtml(c)}</th>`).join("")}</tr></thead>`;
+      const tbody = `<tbody>${rows.map(r => {
+        const img = r.IMAGE_URL ? `<a href="${escapeHtml(r.IMAGE_URL)}" target="_blank" rel="noopener">
+                                     <img class="thumb" src="${escapeHtml(r.IMAGE_URL)}" alt="img" onerror="this.style.display='none'">
+                                   </a>` : "";
+        return `<tr>
+          <td>${escapeHtml(r.MEMBER_ID ?? "")}</td>
+          <td>${escapeHtml(r.NAME ?? "")}</td>
+          <td>${escapeHtml(r.MOBILE ?? "")}</td>
+          <td>${escapeHtml(r.ADDRESS ?? "")}</td>
+          <td>${escapeHtml(r.DISTRICT ?? "")}</td>
+          <td>${escapeHtml(r.UPAZILLA ?? "")}</td>
+          <td>${escapeHtml(r.COMMITTEE ?? "")}</td>
+          <td>${escapeHtml(r.POSITION ?? "")}</td>
+          <td>${img || escapeHtml(r.IMAGE_URL ?? "")}</td>
+          <td>${escapeHtml(r.META1 ?? "")}</td>
+          <td>${escapeHtml(r.META2 ?? "")}</td>
+          <td>${escapeHtml(r.META3 ?? "")}</td>
+          <td>${escapeHtml(r.META4 ?? "")}</td>
+        </tr>`;
+      }).join("")}</tbody>`;
+      tableWrap.innerHTML = `<table>${thead}${tbody}</table>`;
+    }
+
+    async function search() {
+      const params = buildQuery();
+
+      // require at least one filter
+      const hasAny = [...params.keys()].some(k => Object.keys(inputs).includes(k));
+      if (!hasAny) {
+        setStatus("Enter at least one filter.", "error");
+        tableWrap.innerHTML = "";
+        setMeta("");
+        return;
+      }
+
+      const url = `${BASE_URL}?${params.toString()}`;
+      setStatus("Searching…");
+      setMeta("");
+      tableWrap.innerHTML = "";
+      $('searchBtn').disabled = true;
+
+      try {
+        const res = await fetch(url, { method: 'GET' });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.ok === false) {
+          const msg = (data && (data.error || data.message)) || `HTTP ${res.status}`;
+          setStatus(msg, "error");
+          tableWrap.innerHTML = "";
+          return;
+        }
+        const rows = Array.isArray(data.data) ? data.data : [];
+        setStatus(`Found ${data.total ?? rows.length} result(s).`, "success");
+        setMeta(`Request URL: ${url}`);
+        renderTable(rows);
+        updateUrlBar(params);
+      } catch (err) {
+        setStatus(`Network error: ${err.message}`, "error");
+      } finally {
+        $('searchBtn').disabled = false;
+      }
+    }
+
+    function clearFilters() {
+      Object.values(inputs).forEach(inp => inp.value = "");
+      tableWrap.innerHTML = "";
+      setStatus("");
+      setMeta("");
+      updateUrlBar(new URLSearchParams());
+    }
+
+    function copyShareLink() {
+      const params = buildQuery();
+      const url = new URL(location.href);
+      url.search = "";
+      for (const [k,v] of params.entries()) {
+        if (["page","page_size"].includes(k)) continue;
+        if (v) url.searchParams.set(k, v);
+      }
+      navigator.clipboard.writeText(url.toString())
+        .then(() => setStatus("Link copied!", "success"))
+        .catch(() => setStatus("Could not copy link", "error"));
+    }
+
+    // Wire up
+    $('searchBtn').addEventListener('click', search);
+    $('clearBtn').addEventListener('click', clearFilters);
+    $('shareBtn').addEventListener('click', copyShareLink);
+    Object.values(inputs).forEach(inp => {
+      inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') search(); });
+    });
+
+    // Initialize from URL (case-sensitive to match API param names)
+    (function initFromUrl() {
+      const sp = new URLSearchParams(location.search);
+      Object.keys(inputs).forEach(k => { if (sp.has(k)) inputs[k].value = sp.get(k) || ''; });
+      if ([...sp.keys()].some(k => Object.keys(inputs).includes(k))) search();
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!------------------------------------------------------------------------------>
         </div>
 
       </div>
