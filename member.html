@@ -571,13 +571,14 @@ select:focus {
       
       // require at least one filter
       const hasAny = [...params.keys()].some(k => Object.keys(inputs).includes(k));
+      /*
       if (!hasAny) {
         setStatus("Enter at least one filter.", "error");
         tableWrap.innerHTML = "";
         setMeta("");
         return;
       }
-
+      */
       const url = `${BASE_URL}?${params.toString()}`;
       setStatus("Searching…");
       setMeta("");
