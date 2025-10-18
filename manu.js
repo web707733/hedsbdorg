@@ -19,7 +19,7 @@ const menuHTML = `
         </ul>
       </li>
       <li class="dropdown">
-        <a href="https://hedsbd.org/member.html">Branch &amp; Committee<i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <a href="https://hedsbd.org/branchandcommittee.html">Branch &amp; Committee<i class="bi bi-chevron-down toggle-dropdown"></i></a>
       </li>
       <li><a href="https://www.facebook.com/groups/hedsbd">Activities</a></li>
       <li class="dropdown">
