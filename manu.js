@@ -48,14 +48,30 @@ const menuHTML = `
   `;
 console.log("load menu");
 
-const memberType = "";
+
 
   // Load it into the container
 document.getElementById("navmenu").innerHTML = menuHTML;
   // === Highlight menu item based on URL parameter ===
+
+
+
+
+  
+// Get query parameter
 const params = new URLSearchParams(window.location.search);
-memberType = params.get("MEMBER_TYPE"); // e.g. "DONOR"
-    
+const memberType = params.get("MEMBER_TYPE"); // e.g. "DONOR"
+
 if (memberType) {
-  alert(memberType);
+const select = document.getElementById("member_type");
+// Normalize both sides (remove spaces and uppercase)
+const normalized = memberType.trim().toUpperCase();
+
+// Loop through options and select the match
+for (const option of select.options) {
+    if (option.value.trim().toUpperCase() === normalized) {
+    option.selected = true;
+    break;
+    }
+}
 }
