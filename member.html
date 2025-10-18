@@ -276,6 +276,21 @@ select:focus {
       
       
       </div>
+      
+            <div class="field"><label for="comittee">MEMBER TYPE</label>
+
+        <select id="member_type" name="member_type" >
+  <option value="NA">-- Select member type --</option>
+  <option value="GENERAL">GENERAL</option>
+  <option value="LIFE">LIFE</option>
+  <option value="DONOR ">DONOR </option>
+
+</select>
+      
+      
+      </div>
+      
+      
 
 
 
@@ -485,7 +500,7 @@ select:focus {
       DIVISION: $('division'),
       DISTRICT: $('district'),
       UPAZILLA: $('upazilla'),
-      MEMBER_TYPE: 'GENERAL',
+      MEMBER_TYPE: $('member_type'),
       COMITTEE: $('comittee'),  // note: if your sheet uses COMMITTEE, update both here and in the sheet/API
       POSITION: $('position'),
       IMAGE_URL: $('image_url'),
@@ -540,7 +555,7 @@ select:focus {
       }
 
       
-      const cols = ["MEMBER_ID","NAME","MOBILE","ADDRESS","DIVISION","DISTRICT","UPAZILLA","COMMITTEE","POSITION","PHOTO"];
+      const cols = ["MEMBER_ID","NAME","MOBILE","ADDRESS","DIVISION","DISTRICT","UPAZILLA","COMMITTEE","MEMBER_TYPE","POSITION","PHOTO"];
       const thead = `<thead><tr>${cols.map(c=>`<th>${escapeHtml(c)}</th>`).join("")}</tr></thead>`;
       const tbody = `<tbody>${rows.map(r => {
         const img = r.IMAGE_URL ? `<a href="${escapeHtml(r.IMAGE_URL)}" target="_blank" rel="noopener">
@@ -555,6 +570,7 @@ select:focus {
           <td>${escapeHtml(r.DISTRICT ?? "")}</td>
           <td>${escapeHtml(r.UPAZILLA ?? "")}</td>
           <td>${escapeHtml(r.COMMITTEE ?? "")}</td>
+          <td>${escapeHtml(r.MEMBER_TYPE ?? "")}</td>
           <td>${escapeHtml(r.POSITION ?? "")}</td>
           <td>${img || escapeHtml(r.IMAGE_URL ?? "")}</td>
           
@@ -571,7 +587,6 @@ select:focus {
       
       // require at least one filter
       const hasAny = [...params.keys()].some(k => Object.keys(inputs).includes(k));
-      
       if (!hasAny) {
         setStatus("Enter at least one filter.", "error");
         tableWrap.innerHTML = "";
@@ -579,7 +594,7 @@ select:focus {
         return;
       }
 
-      const url = `${BASE_URL}?MEMBER_TYPE=GENERAL&${params.toString()}`;
+      const url = `${BASE_URL}?${params.toString()}`;
       setStatus("Searching…");
       setMeta("");
       tableWrap.innerHTML = "";
