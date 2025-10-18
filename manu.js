@@ -63,6 +63,8 @@ const params = new URLSearchParams(window.location.search);
 const memberType = params.get("MEMBER_TYPE"); // e.g. "DONOR"
 
 if (memberType) {
+
+document.getElementById("memberlist").textContent = memberType;
 const select = document.getElementById("member_type");
 // Normalize both sides (remove spaces and uppercase)
 const normalized = memberType.trim().toUpperCase();
