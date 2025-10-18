@@ -46,6 +46,6 @@ const menuHTML = `
       </li>
     </ul>
   `;
-
+alert("hello");
   // Load it into the container
 document.getElementById("navmenu").innerHTML = menuHTML;
