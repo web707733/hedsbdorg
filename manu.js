@@ -46,6 +46,16 @@ const menuHTML = `
       </li>
     </ul>
   `;
-alert("hello");
+console.log("load menu");
+
+const memberType = "";
+
   // Load it into the container
 document.getElementById("navmenu").innerHTML = menuHTML;
+  // === Highlight menu item based on URL parameter ===
+const params = new URLSearchParams(window.location.search);
+memberType = params.get("MEMBER_TYPE"); // e.g. "DONOR"
+    
+if (memberType) {
+  alert(memberType);
+}
