@@ -468,7 +468,7 @@ select:focus {
   <script>
     // Update to your current deployment URL
     
-    const BASE_URL = "https://script.google.com/macros/s/AKfycbx5jjQYzOgXfBwygt_21kgLMhB-HXMyls6b_-wB1VFdmSAhwflFGeC4IDOxXpbvvGfOQw/exec";
+    const BASE_URL = "https://script.google.com/macros/s/AKfycbzAu37t95FPg9cCpZmg5miIyOz88R-5QKCx1B2jcAnf-tuDx2RYq9LAPfskrv3INPyGvw/exec";
 
     const $ = (id) => document.getElementById(id);
     const statusEl = $('status');
@@ -485,6 +485,7 @@ select:focus {
       DIVISION: $('division'),
       DISTRICT: $('district'),
       UPAZILLA: $('upazilla'),
+      MEMBER_TYPE: 'GENERAL',
       COMITTEE: $('comittee'),  // note: if your sheet uses COMMITTEE, update both here and in the sheet/API
       POSITION: $('position'),
       IMAGE_URL: $('image_url'),
