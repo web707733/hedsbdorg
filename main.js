@@ -48,7 +48,7 @@
 
   /**
    * Toggle mobile nav dropdowns
-   */
+  
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
     navmenu.addEventListener('click', function(e) {
       e.preventDefault();
@@ -57,6 +57,112 @@
       e.stopImmediatePropagation();
     });
   });
+ */
+
+
+
+
+/* my code */
+
+// Your menu HTML string
+const menuHTML = `
+  <ul>
+    <li><a href="https://hedsbd.org/" aria-current="page">Home</a></li>
+    <li class="dropdown">
+      <a href="#">About<i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li><a href="https://hedsbd.org/member.html?MEMBER_TYPE=EXECUTIVE">Executive Member</a></li>
+        <li><a href="https://hedsbd.org/">Advisor</a></li>
+        <li><a href="https://hedsbd.org/">Central Committee</a></li>
+        <li><a href="https://hedsbd.org/">Objectives of Society</a></li>
+        <li><a href="https://hedsbd.org/">Memorandum (Bangla)</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="https://hedsbd.org/">Members<i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li><a href="https://hedsbd.org/member.html?MEMBER_TYPE=GENERAL">General Member</a></li>
+        <li><a href="https://hedsbd.org/member.html?MEMBER_TYPE=LIFE">Life Member</a></li>
+        <li><a href="https://hedsbd.org/member.html?MEMBER_TYPE=DONOR">Donor Member</a></li>
+      </ul>
+    </li>
+  </ul>
+`;
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1️⃣ Find your nav container
+  const navContainer = document.querySelector(".navmenu");
+
+  // 2️⃣ Convert string → real DOM nodes safely
+  const temp = document.createElement("div");
+  temp.innerHTML = menuHTML.trim();
+
+  // 3️⃣ Append menu content (without using innerHTML)
+  navContainer.appendChild(temp.firstElementChild);
+
+  // 4️⃣ Add dropdown toggle functionality
+  navContainer.querySelectorAll(".toggle-dropdown").forEach(icon => {
+    icon.addEventListener("click", function (e) {
+      e.preventDefault();
+      const parent = this.parentNode;
+      parent.classList.toggle("active");
+      const submenu = parent.nextElementSibling;
+      if (submenu) submenu.classList.toggle("dropdown-active");
+      e.stopPropagation();
+    });
+  });
+});
+
+/* my code */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /**
    * Preloader
