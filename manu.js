@@ -1,4 +1,4 @@
-
+/*
 const menuHTML = `
     <ul>
       <li><a href="https://hedsbd.org/" aria-current="page">Home</a></li>
@@ -46,6 +46,10 @@ const menuHTML = `
       </li>
     </ul>
   `;
+
+
+*/
+
 console.log("load menu");
 
 
