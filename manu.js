@@ -51,7 +51,7 @@ console.log("load menu");
 
 
   // Load it into the container
-document.getElementById("navmenu").innerHTML = menuHTML;
+//document.getElementById("navmenu").innerHTML = menuHTML;
   // === Highlight menu item based on URL parameter ===
 
 
